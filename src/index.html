@@ -7,25 +7,34 @@
   </head>
   <body>
     <div id="container">
+      <a href="http://baidu.com" target="_self" rel="noopener noreferrer">aaa</a>
       <div class="content" style="width: 600px; word-wrap: break-word"></div>
     </div>
     <script>
-      let content = document.getElementsByClassName("content")[0];
-      // content.innerHTML = "@".repeat(10000);
-      // DOM解析完成，即使依赖的资源没有加载完成，也会触发这个时间
-      // document.addEventListener("DOMContentLoaded", () => {
-      //   let start = Date.now();
-      //   while (Date.now() - start < 1000) {}
-      // });
-      setTimeout(() => {
-        let h1 = document.createElement("h1");
-        h1.innerHTML = "FMP";
-        h1.setAttribute("elementtiming", "meaningful");
-        content.appendChild(h1)
-      }, 2000);
-      fetch('/success').then(res => res.json()).then(res=> {
-        // console.log('fetch jsonRes', res)
-      })
+      window.addEventListener("pagehide", () => {
+      // 记录用户在页面停留时间
+     document.title="pagehide"
+    });
+    window.addEventListener("pageshow", () => {
+      // 记录用户在页面停留时间 
+     document.title="pageshow"
+    });
+      // let content = document.getElementsByClassName("content")[0];
+      // // content.innerHTML = "@".repeat(10000);
+      // // DOM解析完成，即使依赖的资源没有加载完成，也会触发这个时间
+      // // document.addEventListener("DOMContentLoaded", () => {
+      // //   let start = Date.now();
+      // //   while (Date.now() - start < 1000) {}
+      // // });
+      // setTimeout(() => {
+      //   let h1 = document.createElement("h1");
+      //   h1.innerHTML = "FMP";
+      //   h1.setAttribute("elementtiming", "meaningful");
+      //   content.appendChild(h1)
+      // }, 2000);
+      // fetch('/success').then(res => res.json()).then(res=> {
+      //   // console.log('fetch jsonRes', res)
+      // })
     </script>
   </body>
 </html>

@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/index.js",
   // 上下文目录
   context: process.cwd(),
-  mode: "development",
+  mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "monitor.js",
